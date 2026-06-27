@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Build AVX2 Engine",
+            "command": "g++", 
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-O3",           // Maximum compiler optimization
+                "-march=native", // Tell compiler to use all features of YOUR specific CPU (fixes FMA mismatch)
+                "-mavx2",        // Enable 256-bit SIMD intrinsics
+                "-mfma",         // CRITICAL FIX: Enable Fused Multiply-Add instructions
+                //"-fopenmp"       // Enable Multi-threading
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compiler for High-Performance Engine"
+        }
+    ]
+}
