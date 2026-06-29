@@ -9,7 +9,7 @@ A from-scratch neural network inference engine written in C++ that runs trained 
 | Model Architecture | Precision | Inference Time |
 |---|---|---|
 | 10→512→512→128→10 (Linear NN) | FP32 | ~8ms |
-| 10→512→512→128→10 (Linear NN) | INT8 (quantized) | ~5ms |
+| 10→512→512→128→10 (Linear NN) | INT8 (quantized) | ~8ms |
 
 Benchmarked using `std::chrono` on CPU. No GPU. No PyTorch. No ONNX Runtime.
 
